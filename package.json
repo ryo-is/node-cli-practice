@@ -1,5 +1,8 @@
 {
-  "name": "cli-practice",
+  "name": "@is-ryo/cli-practice",
+  "publishConfig": {
+    "access": "public"
+  },
   "version": "1.0.0",
   "description": "cli test",
   "main": "src/index.js",
@@ -15,7 +18,7 @@
     "url": "git+https://github.com/ryo-is/node-cli-practice.git"
   },
   "author": "@is_ryo",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/ryo-is/node-cli-practice/issues"
   },
