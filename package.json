@@ -1,17 +1,20 @@
 {
   "name": "cli-practice",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "cli test",
+  "main": "src/index.js",
   "scripts": {
     "lint": "eslint",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "cli": "bin/cli.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ryo-is/node-cli-practice.git"
   },
-  "author": "",
+  "author": "@is_ryo",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ryo-is/node-cli-practice/issues"
