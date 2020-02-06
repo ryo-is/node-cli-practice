@@ -1,17 +1,16 @@
 import { createInterface } from 'readline'
 
 export default (): void => {
-  const [, , firstArg] = process.argv
+  const name = process.argv[3]
 
-  if (!firstArg) {
+  if (!name) {
     console.error('Please pass one argument!!')
     process.exit(1)
   }
 
   const msg = `
-    Hello!! ${firstArg} !!!
+    Hello!! ${name} !!!
   `
-
   console.log(msg)
 
   const rl = createInterface({
