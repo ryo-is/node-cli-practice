@@ -9,10 +9,7 @@ export default (): void => {
   }
 
   const msg = `
-    Hello!! ${firstArg} san.
-    I am Ryosuke Izumi.
-    GitHub: https://github.com/ryo-is
-    Twitter: https://twitter.com/is_ryo
+    Hello!! ${firstArg} !!!
   `
 
   console.log(msg)
@@ -22,7 +19,7 @@ export default (): void => {
     output: process.stdout
   })
 
-  rl.question('Please enter names for your project: ', (answer: string) => {
+  rl.question('Please enter messages: ', (answer: string) => {
     console.log(`Thank you!! Let's start ${answer}`)
 
     rl.close()
