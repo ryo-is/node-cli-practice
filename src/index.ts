@@ -1,6 +1,6 @@
-import { createInterface } from 'readline'
+import { prompt, Separator, QuestionCollection } from 'inquirer'
 
-export default (): void => {
+export default async (): Promise<void> => {
   const name = process.argv[3]
 
   if (!name) {
@@ -13,14 +13,61 @@ export default (): void => {
   `
   console.log(msg)
 
-  const rl = createInterface({
-    input: process.stdin,
-    output: process.stdout
+  // Input
+  const inputQuestions: QuestionCollection = [
+    {
+      type: 'input',
+      message: "What's your name",
+      name: 'name'
+    }
+  ]
+  await prompt(inputQuestions).then((answers: any) => {
+    console.log(JSON.stringify(answers, null, '  '))
   })
 
-  rl.question('Please enter messages: ', (answer: string) => {
-    console.log(`Thank you!! Let's start ${answer}`)
+  // List
+  const listQuestions: QuestionCollection = [
+    {
+      type: 'list',
+      name: 'color',
+      message: 'What do you like color?',
+      choices: [
+        'black',
+        'red',
+        {
+          name: 'orange',
+          disabled: 'disabled'
+        },
+        'green'
+      ]
+    }
+  ]
+  await prompt(listQuestions).then((answers: any) => {
+    console.log(JSON.stringify(answers, null, '  '))
+  })
 
-    rl.close()
+  // Checkbox
+  const checkboxQuestions: QuestionCollection = [
+    {
+      type: 'checkbox',
+      message: 'select',
+      name: 'select',
+      choices: [
+        new Separator(' = Choise A = '),
+        { name: 'hoge' },
+        { name: 'fuga' },
+        { name: 'foo' }
+      ],
+      validate: (answer: any): boolean | string => {
+        if (answer.length < 1) {
+          return 'You must choose'
+        }
+
+        return true
+      }
+    }
+  ]
+  await prompt(checkboxQuestions).then((answers: any) => {
+    console.log(JSON.stringify(answers, null, '  '))
   })
 }
