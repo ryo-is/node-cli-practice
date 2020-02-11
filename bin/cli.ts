@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 import index from '../src/index'
 import cac from 'cac'
 
